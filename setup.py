@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import ez_setup
+ez_setup.use_setuptools(version='0.6c3')
+
+from setuptools import setup
+
+setup(name='recaptcha-client',
+      version='1.0',
+      url = "http://recaptcha.net/",
+      author = "Ben Maurer",
+      author_email = "support@recaptcha.net",
+      description = "A plugin for reCAPTCHA and reCAPTCHA Mailhide",
+      long_description = "Provides a CAPTCHA for Python using the reCAPTCHA service. Does not require any imaging libraries because the CAPTCHA is served directly from reCAPTCHA. Also allows you to securely obfuscate emails with Mailhide. This functionality requires pycrypto. This library requires two types of API keys. If you'd like to use the CAPTCHA, you'll need a key from http://recaptcha.net/api/getkey. For Mailhide, you'll need a key from http://mailhide.recaptcha.net/apikey",
+
+      packages = [
+        "recaptcha.client",
+        ],
+      extras_require = {
+        'mailhide' : ['pycrypto'],
+        },
+      namespace_packages = ['recaptcha'],
+      )
+
