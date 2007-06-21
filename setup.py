@@ -6,7 +6,7 @@ ez_setup.use_setuptools(version='0.6c3')
 from setuptools import setup
 
 setup(name='recaptcha-client',
-      version='1.0',
+      version='1.0.1',
       url = "http://recaptcha.net/",
       author = "Ben Maurer",
       author_email = "support@recaptcha.net",

@@ -1,7 +1,7 @@
 import urllib2, urllib
 
-API_SSL_SERVER="api-secure.recaptcha.net"
-API_SERVER="api.recaptcha.net"
+API_SSL_SERVER="https://api-secure.recaptcha.net"
+API_SERVER="http://api.recaptcha.net"
 VERIFY_SERVER="api-verify.recaptcha.net"
 
 class RecaptchaResponse(object):
