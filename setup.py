@@ -3,7 +3,7 @@
 import ez_setup
 ez_setup.use_setuptools(version='0.6c3')
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='recaptcha-client',
       version='1.0.1',
@@ -22,9 +22,8 @@ setup(name='recaptcha-client',
         ],
 
 
-      packages = [
-        "recaptcha.client",
-        ],
+      packages = find_packages(),
+
       extras_require = {
         'mailhide' : ['pycrypto'],
         },
