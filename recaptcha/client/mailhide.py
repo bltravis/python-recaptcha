@@ -43,9 +43,9 @@ def _pad_string (str, block_size):
 
 def _encrypt_string (str, aes_key, aes_iv):
     if len (aes_key) != 16:
-	raise Exception ("expecting key of length 16")
+        raise Exception ("expecting key of length 16")
     if len (aes_iv) != 16:
-	raise Exception ("expecting iv of length 16")
+        raise Exception ("expecting iv of length 16")
     return AES.new (aes_key, AES.MODE_CBC, aes_iv).encrypt (_pad_string (str, 16))
 
 def _doterizeemail (email):

@@ -20,7 +20,7 @@ def displayhtml (public_key,
 
     error_param = ''
     if error:
-	error_param = '&error=%s' % error
+        error_param = '&error=%s' % error
 
     if use_ssl:
         server = API_SSL_SERVER
@@ -62,11 +62,11 @@ def submit (recaptcha_challenge_field,
     
     
     params = urllib.urlencode ({
-	    'privatekey': private_key,
+            'privatekey': private_key,
             'remoteip' : remoteip,
-	    'challenge': recaptcha_challenge_field,
-	    'response' : recaptcha_response_field,
-	    })
+            'challenge': recaptcha_challenge_field,
+            'response' : recaptcha_response_field,
+            })
 
     request = urllib2.Request (
         url = "http://%s/verify" % VERIFY_SERVER,
