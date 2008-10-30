@@ -59,13 +59,17 @@ def submit (recaptcha_challenge_field,
             len (recaptcha_response_field) and len (recaptcha_challenge_field)):
         return RecaptchaResponse (is_valid = False, error_code = 'incorrect-captcha-sol')
     
-    
-    
+
+    def encode_if_necessary(s):
+        if isinstance(s, unicode):
+            return s.encode('utf-8')
+        return s
+
     params = urllib.urlencode ({
-            'privatekey': private_key,
-            'remoteip' : remoteip,
-            'challenge': recaptcha_challenge_field,
-            'response' : recaptcha_response_field,
+            'privatekey': encode_if_necessary(private_key),
+            'remoteip' :  encode_if_necessary(remoteip),
+            'challenge':  encode_if_necessary(recaptcha_challenge_field),
+            'response' :  encode_if_necessary(recaptcha_response_field),
             })
 
     request = urllib2.Request (
