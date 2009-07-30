@@ -10,7 +10,6 @@ setup(name='recaptcha-client',
       url = "http://recaptcha.net",
       author = "Ben Maurer",
       author_email = "support@recaptcha.net",
-      maintainer='Josh Bronson',
       description = "A plugin for reCAPTCHA and reCAPTCHA Mailhide",
       long_description = """\
 Provides a CAPTCHA for Python using the reCAPTCHA service. Does not require
