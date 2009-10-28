@@ -1,12 +1,12 @@
-#!/usr/bin/env python
-
-import ez_setup
-ez_setup.use_setuptools(version='0.6c3')
-
-from setuptools import setup, find_packages
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from ez_setup import use_setuptools
+    use_setuptools()
+    from setuptools import setup, find_packages
 
 setup(name='recaptcha-client',
-      version='1.0.4',
+      version='1.0.5',
       url = "http://recaptcha.net",
       author = "Ben Maurer",
       author_email = "support@recaptcha.net",
