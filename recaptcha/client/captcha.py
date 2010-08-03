@@ -44,7 +44,7 @@ def displayhtml (public_key,
 def submit (recaptcha_challenge_field,
             recaptcha_response_field,
             private_key,
-            remoteip):
+            remoteip, use_ssl=False):
     """
     Submits a reCAPTCHA request for verification. Returns RecaptchaResponse
     for the request
@@ -72,8 +72,13 @@ def submit (recaptcha_challenge_field,
             'response' :  encode_if_necessary(recaptcha_response_field),
             })
 
+    if use_ssl:
+        verify_url = 'https://%s/recaptcha/api/verify' % VERIFY_SERVER
+    else:
+        verify_url = 'http://%s/recaptcha/api/verify' % VERIFY_SERVER
+    
     request = urllib2.Request (
-        url = "http://%s/recaptcha/api/verify" % VERIFY_SERVER,
+        url = verify_url,
         data = params,
         headers = {
             "Content-type": "application/x-www-form-urlencoded",
@@ -89,6 +94,6 @@ def submit (recaptcha_challenge_field,
     return_code = return_values [0]
 
     if (return_code == "true"):
-        return RecaptchaResponse (is_valid=True)
+        return RecaptchaResponse(is_valid=True)
     else:
-        return RecaptchaResponse (is_valid=False, error_code = return_values [1])
+        return RecaptchaResponse(is_valid=False, error_code = return_values [1])
