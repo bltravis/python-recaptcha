@@ -1,0 +1,10 @@
+This is a fork of the official reCAPTCHA api to provide support for optional SSl-enabled submission.
+
+The official version/repository can be found at:
+
+http://code.google.com/p/recaptcha/
+
+To install:
+
+cd /path/to/python-recaptcha/
+sudo python setup.py install
